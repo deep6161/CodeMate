@@ -147,14 +147,14 @@ fun NewEntry (modifier: Modifier = Modifier,navController: NavController) {
                         Toast.makeText(context, "Please fill all fields", Toast.LENGTH_SHORT).show()
 
                     } else {
-                        // ✅ Save data
+
                         addEntry(
                             name = input,
                             description = decprition,
                             code = text,
                             option = selectedOption
                         )
-                        // Reset fields
+
                         input = ""
                         decprition = ""
                         text = ""

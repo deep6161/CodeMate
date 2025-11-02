@@ -41,7 +41,7 @@ fun CodeMateTopBar(
             Row(verticalAlignment = Alignment.CenterVertically) {
                 if (showLogo) {
                     Image(
-                        painter = painterResource(id = R.drawable.codemate_logoc), // Your logo icon
+                        painter = painterResource(id = R.drawable.codemate_logoc),
                         contentDescription = "CodeMate Logo",
                         modifier = Modifier.size(75.dp).padding(end = 3.dp),
                         contentScale = ContentScale.Crop

@@ -1,5 +1,6 @@
 package com.example.codemate
 
+import android.net.Uri
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -33,7 +34,27 @@ class MainActivity : ComponentActivity() {
 
                     composable(route = "NewEntry") {
                         NewEntryScreen( navController = navController) }
-                } )
+
+                    composable(
+                        route = "EntryDetail/{title}/{description}/{code}/{language}"
+                    ) { backStackEntry ->
+                        val title = Uri.decode(backStackEntry.arguments?.getString("title") ?: "")
+                        val description = Uri.decode(backStackEntry.arguments?.getString("description") ?: "")
+                        val code = Uri.decode(backStackEntry.arguments?.getString("code") ?: "")
+                        val language = Uri.decode(backStackEntry.arguments?.getString("language") ?: "")
+
+
+                        EntryDetailScreen(
+                            navController = navController,
+                            title = title,
+                            description = description,
+                            code = code,
+                            language = language
+                        )
+                    }
+                 }
+
+                )
             }
         }
     }

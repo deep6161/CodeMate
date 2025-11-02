@@ -1,7 +1,8 @@
 package com.example.codemate
 
 
-import androidx.compose.foundation.BorderStroke
+import android.net.Uri
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -17,7 +18,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Edit
-import androidx.compose.material.icons.materialIcon
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.FloatingActionButton
@@ -30,9 +30,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.colorResource
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
@@ -44,9 +42,10 @@ fun HomeScreen(modifier: Modifier = Modifier,navController: NavController) {
 
     var title = inputdata.title
     var language = inputdata.language
+    var description = inputdata.description
+    var code=inputdata.code
 
 
-    var entries=title.zip(language)
     Scaffold(
         modifier = modifier,
         topBar = {
@@ -74,9 +73,16 @@ fun HomeScreen(modifier: Modifier = Modifier,navController: NavController) {
                         verticalArrangement = Arrangement.spacedBy(8.dp)
                     ){
 
-                        items(entries) { (title, language) ->
-                            entery(title = title, language = language)
+                        items(title.indices.toList()) { index ->
+                            entery(
+                                title = title[index],
+                                language = language[index],
+                                description = description[index],
+                                code = code[index],
+                                navController = navController
+                            )
                         }
+
                     }
                 }
 
@@ -102,14 +108,27 @@ fun HomeScreen(modifier: Modifier = Modifier,navController: NavController) {
 
 
 @Composable
-fun entery(modifier: Modifier = Modifier,title:String,language:String) {
+fun entery(
+    modifier: Modifier = Modifier,
+    title:String,
+    language:String,
+    description: String,
+    code: String,
+    navController: NavController) {
 
     Card (modifier=modifier
         .padding(horizontal = 8.dp)
-        .height(150.dp),
-        colors = CardDefaults.cardColors(containerColor = colorResource(R.color.purple_200)),
+        .height(150.dp)
+        .clickable {
+            navController.navigate(
+                "EntryDetail/${Uri.encode(title)}/${Uri.encode(description)}/${Uri.encode(code)}/${Uri.encode(language)}"
+            )
+
+        },
+        colors = CardDefaults.cardColors(containerColor = Color(0xFFBD93F9)),
         shape = RoundedCornerShape(15.dp),
         elevation =CardDefaults.cardElevation(defaultElevation = 10.dp),
+
     ){
         Row(modifier=Modifier
             .fillMaxWidth()

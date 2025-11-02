@@ -63,8 +63,9 @@ fun HomeScreen(modifier: Modifier = Modifier,navController: NavController) {
                     .padding(paddingValues)) {
                     Text(
                         text = "Journal Entries",
-                        modifier = Modifier.padding(top = 15.dp, bottom = 15.dp),
-                        style = MaterialTheme.typography.headlineLarge
+                        modifier = Modifier.padding(top = 15.dp, bottom = 15.dp, start = 5.dp),
+                        style = MaterialTheme.typography.headlineLarge,
+                        color =Color( 0xFFBD93F9)
                     )
 
                     LazyColumn (modifier = Modifier

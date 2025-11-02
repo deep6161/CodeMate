@@ -22,6 +22,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
@@ -69,7 +70,8 @@ fun NewEntry (modifier: Modifier = Modifier,navController: NavController) {
                 Text(
                     text = "New Entry",
                     modifier = Modifier.padding(start = 5.dp,top = 15.dp, bottom = 10.dp),
-                    style = MaterialTheme.typography.headlineLarge
+                    style = MaterialTheme.typography.headlineLarge,
+                    color = Color(0xFFBD93F9)
                 )
                 OutlinedTextField(
                     value = input,
@@ -111,7 +113,8 @@ fun NewEntry (modifier: Modifier = Modifier,navController: NavController) {
                 Text(
                     text = "language",
                     modifier = Modifier.padding(start = 5.dp,top = 15.dp, bottom = 5.dp),
-                    style = MaterialTheme.typography.headlineSmall
+                    style = MaterialTheme.typography.headlineSmall,
+                    color = Color(0xFFBD93F9)
                 )
                 Row(
                     verticalAlignment = Alignment.CenterVertically,

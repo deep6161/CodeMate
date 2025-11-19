@@ -40,7 +40,7 @@ Designed for simplicity, clarity, and a smooth learning experience. 💡
 
 | Homepage | Data Entry Page | Entry Details Page | After Entry Page |
 |:---------:|:------------------:|:----------------------:|:------------------:|
-| ![Homepage](screenshots/HOMEPAGE.jpg) | ![Data Entry](screenshots/DATAENTRY.jpg) | ![Entry Details](screenshots/ENTRY DETAIL.jpg) | ![After Entry](screenshots/AFTER ENTRY.jpg) |
+| ![Homepage](screenshots/HOMEPAGE.jpg) | ![Data Entry](screenshots/DATAENTRY.jpg) | ![Entry Details](screenshots/ENTRYDETAIL.jpg) | ![After Entry](screenshots/AFTERENTRY.jpg) |
 
 ---
 
